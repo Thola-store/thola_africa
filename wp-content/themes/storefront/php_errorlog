@@ -1,0 +1,248 @@
+[07-Dec-2017 23:12:59 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[08-Dec-2017 23:13:16 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[09-Dec-2017 23:13:04 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[10-Dec-2017 23:13:07 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[11-Dec-2017 23:13:06 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[12-Dec-2017 23:13:17 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[13-Dec-2017 23:13:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[14-Dec-2017 23:13:12 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[15-Dec-2017 23:13:10 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[16-Dec-2017 23:13:05 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[17-Dec-2017 23:13:09 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[18-Dec-2017 23:13:39 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[19-Dec-2017 23:13:35 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[20-Dec-2017 23:13:27 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[21-Dec-2017 23:13:45 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[22-Dec-2017 23:13:20 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[23-Dec-2017 23:13:16 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[24-Dec-2017 23:13:35 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[25-Dec-2017 03:00:09 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[25-Dec-2017 23:13:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[26-Dec-2017 23:13:12 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[27-Dec-2017 23:13:34 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[28-Dec-2017 23:13:25 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[29-Dec-2017 23:13:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[30-Dec-2017 23:13:16 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[31-Dec-2017 23:13:14 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[01-Jan-2018 23:13:29 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[02-Jan-2018 23:13:50 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[03-Jan-2018 23:13:31 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[04-Jan-2018 23:13:36 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[05-Jan-2018 23:13:13 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[06-Jan-2018 23:13:55 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[07-Jan-2018 23:13:29 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[08-Jan-2018 23:13:53 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[09-Jan-2018 23:13:50 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[10-Jan-2018 23:13:50 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[11-Jan-2018 23:13:28 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[12-Jan-2018 23:13:39 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[13-Jan-2018 23:13:41 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[14-Jan-2018 23:13:33 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[15-Jan-2018 23:13:30 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[16-Jan-2018 23:13:24 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[17-Jan-2018 23:14:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[18-Jan-2018 23:13:31 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[19-Jan-2018 23:13:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[20-Jan-2018 23:13:38 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[21-Jan-2018 23:13:29 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[22-Jan-2018 23:13:53 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[23-Jan-2018 23:13:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[24-Jan-2018 23:13:50 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[25-Jan-2018 23:13:28 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[26-Jan-2018 23:13:21 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[27-Jan-2018 23:13:38 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[28-Jan-2018 23:13:37 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[29-Jan-2018 23:13:27 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[30-Jan-2018 23:13:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[31-Jan-2018 23:13:41 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[01-Feb-2018 23:13:42 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[02-Feb-2018 23:13:42 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[03-Feb-2018 23:13:36 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[04-Feb-2018 23:13:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14
+[05-Feb-2018 23:13:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/tholaafr/public_html/wp-content/themes/storefront/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/tholaafr/public_html/wp-content/themes/storefront/index.php on line 14

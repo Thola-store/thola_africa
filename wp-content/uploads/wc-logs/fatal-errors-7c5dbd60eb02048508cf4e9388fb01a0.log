@@ -1,0 +1,8 @@
+2018-02-07T00:24:47+00:00 CRITICAL Uncaught Error: Call to a member function get() on null in /home/tholaafr/public_html/wp-content/plugins/woocommerce-gateway-paypal-express-checkout/includes/class-wc-gateway-ppec-checkout-handler.php:704
+Stack trace:
+#0 /home/tholaafr/public_html/wp-content/plugins/woocommerce-gateway-paypal-express-checkout/includes/abstracts/abstract-wc-gateway-ppec.php(63): WC_Gateway_PPEC_Checkout_Handler->is_started_from_checkout_page()
+#1 /home/tholaafr/public_html/wp-content/plugins/woocommerce-gateway-paypal-express-checkout/includes/class-wc-gateway-ppec-with-paypal.php(12): WC_Gateway_PPEC->__construct()
+#2 /home/tholaafr/public_html/wp-content/plugins/woocommerce/includes/class-wc-payment-gateways.php(105): WC_Gateway_PPEC_With_PayPal->__construct()
+#3 /home/tholaafr/public_html/wp-content/plugins/woocommerce/includes/class-wc-payment-gateways.php(67): WC_Payment_Gateways->init()
+#4 /home/tholaafr/public_html/wp-content/plugins/woocommerce/includes/class-wc-payment-gateways.php(40): WC_Payment_Gateways->__construc
+
