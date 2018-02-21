@@ -57,3 +57,7 @@ Stack trace:
 #3 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce\includes\class-wc-payment-gateways.php(67): WC_Payment_Gateways->init()
 #4 C:\Users\Richard Migwalla\Sites\thola_afric
 
+2018-02-21T16:11:23+00:00 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2018-02-21T16:12:23+00:00 CRITICAL Maximum execution time of 30 seconds exceeded
+
