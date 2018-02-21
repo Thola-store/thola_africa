@@ -6,3 +6,54 @@ Stack trace:
 #3 /home/tholaafr/public_html/wp-content/plugins/woocommerce/includes/class-wc-payment-gateways.php(67): WC_Payment_Gateways->init()
 #4 /home/tholaafr/public_html/wp-content/plugins/woocommerce/includes/class-wc-payment-gateways.php(40): WC_Payment_Gateways->__construc
 
+2018-02-12T12:06:47+00:00 CRITICAL Uncaught Error: Call to a member function get() on null in C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce-gateway-paypal-express-checkout\includes\class-wc-gateway-ppec-checkout-handler.php:704
+Stack trace:
+#0 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce-gateway-paypal-express-checkout\includes\abstracts\abstract-wc-gateway-ppec.php(63): WC_Gateway_PPEC_Checkout_Handler->is_started_from_checkout_page()
+#1 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce-gateway-paypal-express-checkout\includes\class-wc-gateway-ppec-with-paypal.php(12): WC_Gateway_PPEC->__construct()
+#2 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce\includes\class-wc-payment-gateways.php(105): WC_Gateway_PPEC_With_PayPal->__construct()
+#3 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce\includes\class-wc-payment-gateways.php(67): WC_Payment_Gateways->init()
+#4 C:\Users\Richard Migwalla\Sites\thola_afric
+
+2018-02-12T12:08:01+00:00 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2018-02-12T21:15:50+00:00 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2018-02-13T15:56:25+00:00 CRITICAL Uncaught Exception: Element must be mapped in system in C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\shortcodes\shortcodes.php:1432
+Stack trace:
+#0 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\shortcodes\shortcodes.php(1458): Vc_Shortcodes_Manager->getElementClass('rev_slider')
+#1 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\editors\class-vc-frontend-editor.php(683): Vc_Shortcodes_Manager->shortcodeClass()
+#2 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\editors\class-vc-frontend-editor.php(614): Vc_Frontend_Editor->renderShortcodes(Array)
+#3 C:\Users\Richard Migwalla\Sites\thola_africa\wp-includes\class-wp-hook.php(286): Vc_Frontend_Editor->loadShortcodes('')
+#4 C:\Users\Richard Migwalla\Sites\thola_africa\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 C:\Users\Richard Migwalla\Sites\thola_africa\
+
+2018-02-13T16:13:31+00:00 CRITICAL Uncaught Exception: Element must be mapped in system in C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\shortcodes\shortcodes.php:1432
+Stack trace:
+#0 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\shortcodes\shortcodes.php(1458): Vc_Shortcodes_Manager->getElementClass('rev_slider')
+#1 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\editors\class-vc-frontend-editor.php(683): Vc_Shortcodes_Manager->shortcodeClass()
+#2 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\editors\class-vc-frontend-editor.php(614): Vc_Frontend_Editor->renderShortcodes(Array)
+#3 C:\Users\Richard Migwalla\Sites\thola_africa\wp-includes\class-wp-hook.php(286): Vc_Frontend_Editor->loadShortcodes('')
+#4 C:\Users\Richard Migwalla\Sites\thola_africa\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 C:\Users\Richard Migwalla\Sites\thola_africa\
+
+2018-02-13T16:14:20+00:00 CRITICAL Uncaught Exception: Element must be mapped in system in C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\shortcodes\shortcodes.php:1432
+Stack trace:
+#0 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\shortcodes\shortcodes.php(1458): Vc_Shortcodes_Manager->getElementClass('rev_slider')
+#1 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\editors\class-vc-frontend-editor.php(683): Vc_Shortcodes_Manager->shortcodeClass()
+#2 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\js_composer\include\classes\editors\class-vc-frontend-editor.php(614): Vc_Frontend_Editor->renderShortcodes(Array)
+#3 C:\Users\Richard Migwalla\Sites\thola_africa\wp-includes\class-wp-hook.php(286): Vc_Frontend_Editor->loadShortcodes('')
+#4 C:\Users\Richard Migwalla\Sites\thola_africa\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 C:\Users\Richard Migwalla\Sites\thola_africa\
+
+2018-02-15T10:03:03+00:00 CRITICAL Maximum execution time of 60 seconds exceeded
+
+2018-02-15T10:03:18+00:00 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2018-02-20T12:36:59+00:00 CRITICAL Uncaught Error: Call to a member function get() on null in C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce-gateway-paypal-express-checkout\includes\class-wc-gateway-ppec-checkout-handler.php:704
+Stack trace:
+#0 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce-gateway-paypal-express-checkout\includes\abstracts\abstract-wc-gateway-ppec.php(63): WC_Gateway_PPEC_Checkout_Handler->is_started_from_checkout_page()
+#1 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce-gateway-paypal-express-checkout\includes\class-wc-gateway-ppec-with-paypal.php(12): WC_Gateway_PPEC->__construct()
+#2 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce\includes\class-wc-payment-gateways.php(105): WC_Gateway_PPEC_With_PayPal->__construct()
+#3 C:\Users\Richard Migwalla\Sites\thola_africa\wp-content\plugins\woocommerce\includes\class-wc-payment-gateways.php(67): WC_Payment_Gateways->init()
+#4 C:\Users\Richard Migwalla\Sites\thola_afric
+
