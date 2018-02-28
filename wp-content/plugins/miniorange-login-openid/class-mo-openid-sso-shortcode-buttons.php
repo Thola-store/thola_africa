@@ -118,7 +118,7 @@ function mo_openid_share_shortcode( $atts = '', $title = '', $excerpt = '' ) {
 			if( get_option('mo_openid_whatsapp_share_enable') ) {
 				
 				if(!wp_is_mobile()){
-				$html .= '<a rel="nofollow"  title="Whatsapp" href="https://web.whatsapp.com/send?text=' . $url .'" class="mo-openid-share-link" style="margin-left :  '.($spaceBetweenIcons) . 'px !important;border-bottom:0px !important;"><i class="mo-custom-share-icon ' .$selected_theme. ' fa fa-whatsapp" style="padding-top:8px;text-align:center;color:#ffffff;font-size: '.($sharingSize-16). 'px !important;background-color:#' .$custom_color. ';height: '.$sharingSize. 'px !important;width:' .$sharingSize. 'px !important;"></i></a>';
+				$html .= '<a rel="nofollow"  title="Whatsapp" target ="_blank" href="https://web.whatsapp.com/send?text=' . $url .'" class="mo-openid-share-link" style="margin-left :  '.($spaceBetweenIcons) . 'px !important;border-bottom:0px !important;"><i class="mo-custom-share-icon ' .$selected_theme. ' fa fa-whatsapp" style="padding-top:8px;text-align:center;color:#ffffff;font-size: '.($sharingSize-16). 'px !important;background-color:#' .$custom_color. ';height: '.$sharingSize. 'px !important;width:' .$sharingSize. 'px !important;"></i></a>';
 				}
 				else{
 				$html .= '<a rel="nofollow" title="Whatsapp" href="whatsapp://send?text=' . $url .'" class="mo-openid-share-link" style="margin-left :  '.($spaceBetweenIcons) . 'px !important;border-bottom:0px !important;"><i class="mo-custom-share-icon ' .$selected_theme. ' fa fa-whatsapp" style="padding-top:8px;text-align:center;color:#ffffff;font-size: '.($sharingSize-16). 'px !important;background-color:#' .$custom_color. ';height: '.$sharingSize. 'px !important;width:' .$sharingSize. 'px !important;"></i></a>';					
@@ -199,7 +199,7 @@ function mo_openid_share_shortcode( $atts = '', $title = '', $excerpt = '' ) {
 				$html .= '<a rel="nofollow"  title="Whatsapp" href="whatsapp://send?text=' . $url . '" class="mo-openid-share-link" style="margin-left :  '.($spaceBetweenIcons-6) . 'px !important;border-bottom:0px !important;"><i class=" '.$selected_theme. ' fa fa-whatsapp" style="padding-top:4px;text-align:center;color:'.$fontColor . ';font-size:' .$sharingSize. 'px !important;height:' .$sharingSize. 'px !important;width:' .$sharingSize. 'px !important;"></i></a>';
 				}
 				else{
-				$html .= '<a rel="nofollow" title="Whatsapp" href="https://web.whatsapp.com/send?text=' . $url . '" class="mo-openid-share-link" style="margin-left :  '.($spaceBetweenIcons-6) . 'px !important;border-bottom:0px !important;"><i class=" '.$selected_theme. ' fa fa-whatsapp" style="padding-top:4px;text-align:center;color:'.$fontColor . ';font-size:' .$sharingSize. 'px !important;height:' .$sharingSize. 'px !important;width:' .$sharingSize. 'px !important;"></i></a>';	
+				$html .= '<a rel="nofollow" title="Whatsapp" target ="_blank" href="https://web.whatsapp.com/send?text=' . $url . '" class="mo-openid-share-link" style="margin-left :  '.($spaceBetweenIcons-6) . 'px !important;border-bottom:0px !important;"><i class=" '.$selected_theme. ' fa fa-whatsapp" style="padding-top:4px;text-align:center;color:'.$fontColor . ';font-size:' .$sharingSize. 'px !important;height:' .$sharingSize. 'px !important;width:' .$sharingSize. 'px !important;"></i></a>';
 				}
 			}
 			
@@ -278,7 +278,7 @@ function mo_openid_share_shortcode( $atts = '', $title = '', $excerpt = '' ) {
 				<img alt="Whatsapp" style= "height:  '. $sharingSize . 'px !important;width:  '. $sharingSize . 'px !important;" src=" '. plugins_url( "includes/images/icons/whatsapp.png", __FILE__ ) . '" class="mo-openid-app-share-icons  '. $selected_theme . '" ></a>';
 				}
 				else{
-				$html .= '<a rel="nofollow"  title="Whatsapp" href="https://web.whatsapp.com/send?text=' . $url . '" class="mo-openid-share-link" style="margin-left :  '. ($spaceBetweenIcons) . 'px !important; border-bottom:0px !important;">
+				$html .= '<a rel="nofollow"  title="Whatsapp" target ="_blank" href="https://web.whatsapp.com/send?text=' . $url . '" class="mo-openid-share-link" style="margin-left :  '. ($spaceBetweenIcons) . 'px !important; border-bottom:0px !important;">
 				<img alt="Whatsapp" style= "height:  '. $sharingSize . 'px !important;width:  '. $sharingSize . 'px !important;" src=" '. plugins_url( "includes/images/icons/whatsapp.png", __FILE__ ) . '" class="mo-openid-app-share-icons  '. $selected_theme . '" ></a>';	
 				}
 			
@@ -434,7 +434,7 @@ function mo_openid_vertical_share_shortcode( $atts = '', $title = '', $excerpt =
 				$html .= '<a rel="nofollow" title="Whatsapp" href="whatsapp://send?text=' . $url ."\" class='mo-openid-share-link' ><i class='mo-custom-share-icon " .$selected_theme. " fa fa-whatsapp' style='margin-bottom : " . ($spaceBetweenIcons-4) . "px !important;padding-top:8px;text-align:center;color:#ffffff;font-size:" .($sharingSize-16). "px !important;background-color:#" .$custom_color. ";height:" .$sharingSize. "px !important;width:" .$sharingSize. "px !important;'></i></a>";
 				}
 				else{
-				$html .= '<a rel="nofollow" title="Whatsapp" href="https://web.whatsapp.com/send?text=' . $url ."\" class='mo-openid-share-link' ><i class='mo-custom-share-icon " .$selected_theme. " fa fa-whatsapp' style='margin-bottom : " . ($spaceBetweenIcons-4) . "px !important;padding-top:8px;text-align:center;color:#ffffff;font-size:" .($sharingSize-16). "px !important;background-color:#" .$custom_color. ";height:" .$sharingSize. "px !important;width:" .$sharingSize. "px !important;'></i></a>";
+				$html .= '<a rel="nofollow" title="Whatsapp" target ="_blank" href="https://web.whatsapp.com/send?text=' . $url ."\" class='mo-openid-share-link' ><i class='mo-custom-share-icon " .$selected_theme. " fa fa-whatsapp' style='margin-bottom : " . ($spaceBetweenIcons-4) . "px !important;padding-top:8px;text-align:center;color:#ffffff;font-size:" .($sharingSize-16). "px !important;background-color:#" .$custom_color. ";height:" .$sharingSize. "px !important;width:" .$sharingSize. "px !important;'></i></a>";
 				}
 			}
 			
@@ -510,7 +510,7 @@ function mo_openid_vertical_share_shortcode( $atts = '', $title = '', $excerpt =
 				$html .= '<a rel="nofollow" title="Whatsapp" href="whatsapp://send?text=' . $url ."\" class='mo-openid-share-link' ><i class='fa fa-whatsapp' style='margin-bottom : " . ($spaceBetweenIcons-4) . "px !important;padding-top:4px;text-align:center;color:" .$fontColor . ";font-size:" .$sharingSize. "px !important;height:" .$sharingSize. "px !important;width:" .$sharingSize. "px !important;'></i></a>";
 				}
 				else{
-				$html .= '<a rel="nofollow" title="Whatsapp" href="https://web.whatsapp.com/send?text=' . $url ."\" class='mo-openid-share-link' ><i class='fa fa-whatsapp' style='margin-bottom : " . ($spaceBetweenIcons-4) . "px !important;padding-top:4px;text-align:center;color:" .$fontColor . ";font-size:" .$sharingSize. "px !important;height:" .$sharingSize. "px !important;width:" .$sharingSize. "px !important;'></i></a>";
+				$html .= '<a rel="nofollow" title="Whatsapp" target ="_blank" href="https://web.whatsapp.com/send?text=' . $url ."\" class='mo-openid-share-link' ><i class='fa fa-whatsapp' style='margin-bottom : " . ($spaceBetweenIcons-4) . "px !important;padding-top:4px;text-align:center;color:" .$fontColor . ";font-size:" .$sharingSize. "px !important;height:" .$sharingSize. "px !important;width:" .$sharingSize. "px !important;'></i></a>";
 				}
 			}
 			
@@ -584,7 +584,7 @@ function mo_openid_vertical_share_shortcode( $atts = '', $title = '', $excerpt =
 				$html .= '<a rel="nofollow" title="Whatsapp" href="whatsapp://send?text=' . $url ."\" class='mo-openid-share-link'><img alt='Whatsapp' style= 'margin-bottom : " . ($spaceBetweenIcons-6) . "px !important;height: " . $sharingSize . "px !important;width: " . $sharingSize . "px !important;' src='" . plugins_url( 'includes/images/icons/whatsapp.png', __FILE__ ) . "' class='mo-openid-app-share-icons " . $selected_theme . "' ></a>";
 				}
 				else{
-				$html .= '<a rel="nofollow" title="Whatsapp" href="https://web.whatsapp.com/send?text=' . $url ."\" class='mo-openid-share-link'><img alt='Whatsapp' style= 'margin-bottom : " . ($spaceBetweenIcons-6) . "px !important;height: " . $sharingSize . "px !important;width: " . $sharingSize . "px !important;' src='" . plugins_url( 'includes/images/icons/whatsapp.png', __FILE__ ) . "' class='mo-openid-app-share-icons " . $selected_theme . "' ></a>";					
+				$html .= '<a rel="nofollow" title="Whatsapp" target ="_blank" href="https://web.whatsapp.com/send?text=' . $url ."\" class='mo-openid-share-link'><img alt='Whatsapp' style= 'margin-bottom : " . ($spaceBetweenIcons-6) . "px !important;height: " . $sharingSize . "px !important;width: " . $sharingSize . "px !important;' src='" . plugins_url( 'includes/images/icons/whatsapp.png', __FILE__ ) . "' class='mo-openid-app-share-icons " . $selected_theme . "' ></a>";
 				}
 			}
 			

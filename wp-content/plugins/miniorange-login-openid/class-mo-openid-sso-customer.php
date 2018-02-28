@@ -29,7 +29,7 @@ class CustomerOpenID {
    
 	private $defaultCustomerKey = "16555";
 	private $defaultApiKey = "fFd2XcvTGDemZvbw1bcUesNJWEqKbbUq";
-
+	
 	function create_customer(){
 
 		$url = get_option('mo_openid_host_name') . '/moas/rest/customer/add';
@@ -41,7 +41,7 @@ class CustomerOpenID {
 		$company = get_option('mo_openid_admin_company_name');
 		$first_name = get_option('mo_openid_admin_first_name');
 		$last_name = get_option('mo_openid_admin_last_name');
-		$password 			= get_option('mo_openid_admin_password');
+		$password = get_option('mo_openid_admin_password');
 
 		$fields = array(
 			'companyName' => $company,
@@ -64,12 +64,6 @@ class CustomerOpenID {
 		curl_setopt( $ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'charset: UTF - 8', 'Authorization: Basic' ) );
 		curl_setopt( $ch, CURLOPT_POST, true );
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string );
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}		
 		$content = curl_exec( $ch );
 
 		if( curl_errno( $ch ) ){
@@ -104,12 +98,6 @@ class CustomerOpenID {
 		curl_setopt( $ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'charset: UTF - 8', 'Authorization: Basic' ) );
 		curl_setopt( $ch, CURLOPT_POST, true);
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string);
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}		
 		$content = curl_exec( $ch );
 		if( curl_errno( $ch ) ){
 			echo 'Request Error:' . curl_error( $ch );
@@ -140,12 +128,6 @@ class CustomerOpenID {
 		curl_setopt( $ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'charset: UTF - 8', 'Authorization: Basic' ) );
 		curl_setopt( $ch, CURLOPT_POST, true);
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string);
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}
 		$content = curl_exec( $ch );
 		if( curl_errno( $ch ) ){
 			echo 'Request Error:' . curl_error( $ch );
@@ -172,7 +154,7 @@ class CustomerOpenID {
 		$hashValue = hash("sha512", $stringToHash);
 
 		$customerKeyHeader = "Customer-Key: " . $customerKey;
-		$timestampHeader = "Timestamp: " .number_format($currentTimeInMillis, 0, '', '');
+		$timestampHeader = "Timestamp: " . $currentTimeInMillis;
 		$authorizationHeader = "Authorization: " . $hashValue;
 		if($authType == 'EMAIL') {
 			$fields = array(
@@ -202,12 +184,6 @@ class CustomerOpenID {
 											$timestampHeader, $authorizationHeader));
 		curl_setopt( $ch, CURLOPT_POST, true);
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string);
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}		
 		$content = curl_exec($ch);
 
 		if(curl_errno($ch)){
@@ -234,7 +210,7 @@ class CustomerOpenID {
 		$hashValue = hash("sha512", $stringToHash);
 
 		$customerKeyHeader = "Customer-Key: " . $customerKey;
-		$timestampHeader = "Timestamp: " .number_format($currentTimeInMillis, 0, '', '');
+		$timestampHeader = "Timestamp: " . $currentTimeInMillis;
 		$authorizationHeader = "Authorization: " . $hashValue;
 		$fields = array(
 					   'customerId' => $customerKey,
@@ -253,12 +229,6 @@ class CustomerOpenID {
 											$timestampHeader, $authorizationHeader));
 		curl_setopt( $ch, CURLOPT_POST, true);
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string);
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}		
 		$content = curl_exec($ch);
 
 		if(curl_errno($ch)){
@@ -286,7 +256,7 @@ class CustomerOpenID {
 		$hashValue = hash("sha512", $stringToHash);
 
 		$customerKeyHeader = "Customer-Key: " . $customerKey;
-		$timestampHeader = "Timestamp: " . number_format($currentTimeInMillis, 0, '', '');
+		$timestampHeader = "Timestamp: " . $currentTimeInMillis;
 		$authorizationHeader = "Authorization: " . $hashValue;
 
 		$fields = '';
@@ -310,12 +280,6 @@ class CustomerOpenID {
 											$timestampHeader, $authorizationHeader));
 		curl_setopt( $ch, CURLOPT_POST, true);
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string);
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}		
 		$content = curl_exec($ch);
 
 		if(curl_errno($ch)){
@@ -332,7 +296,7 @@ class CustomerOpenID {
 		$company = get_option('mo_openid_admin_company_name') ? get_option('mo_openid_admin_company_name') : '';
 		$first_name = get_option('mo_openid_admin_first_name') ? get_option('mo_openid_admin_first_name') : '';
 		$last_name = get_option('mo_openid_admin_last_name') ? get_option('mo_openid_admin_last_name') : '';
-		$query = '[WP OpenID Connect Login Plugin] ' . $query;
+		$query = '[WP OpenID Connect Login Free Plugin] ' . $query;
 		$fields = array(
 			'firstName'			=> $first_name,
 			'lastName'	 		=> $last_name,
@@ -356,12 +320,6 @@ class CustomerOpenID {
 		curl_setopt( $ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'charset: UTF-8', 'Authorization: Basic' ) );
 		curl_setopt( $ch, CURLOPT_POST, true);
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string);
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}		
 		$content = curl_exec( $ch );
 
 		if( curl_errno( $ch ) ){
@@ -394,7 +352,7 @@ class CustomerOpenID {
 		$hashValue = hash("sha512", $stringToHash);
 	
 		$customerKeyHeader = "Customer-Key: " . $customerKey;
-		$timestampHeader = "Timestamp: " .number_format($currentTimeInMillis, 0, '', '');
+		$timestampHeader = "Timestamp: " . $currentTimeInMillis;
 		$authorizationHeader = "Authorization: " . $hashValue;
 		
 		$fields = '';
@@ -419,12 +377,6 @@ class CustomerOpenID {
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $field_string);
 		curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt( $ch, CURLOPT_TIMEOUT, 20);
-		if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
-			curl_setopt($ch, CURLOPT_PROXY, WP_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WP_PROXY_PORT);
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME.':'.WP_PROXY_PASSWORD);
-		}		
 		$content = curl_exec($ch);
 		
 		if(curl_errno($ch)){
@@ -433,5 +385,4 @@ class CustomerOpenID {
 		curl_close($ch);
 		return $content;
 	}
-	
 }?>

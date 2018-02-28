@@ -2,11 +2,11 @@
 
 /**
 * Plugin Name: Social Login, Social Sharing by miniOrange
-* Plugin URI: http://miniorange.com
+* Plugin URI: https://www.miniorange.com
 * Description: Allow your users to login, comment and share with Facebook, Google, Twitter, LinkedIn etc using customizable buttons.
-* Version: 5.5.2
+* Version: 6.2.1
 * Author: miniOrange
-* Author URI: http://miniorange.com
+* Author URI: https://www.miniorange.com
 * License: GPL2
 */
 
@@ -15,7 +15,6 @@ include_once dirname( __FILE__ ) . '/class-mo-openid-login-widget.php';
 require('class-mo-openid-sso-customer.php');
 require('class-mo-openid-sso-shortcode-buttons.php');
 require('class-mo-openid-social-comment.php');
-
 
 class Miniorange_OpenID_SSO {
 
@@ -26,14 +25,14 @@ class Miniorange_OpenID_SSO {
 		add_action( 'admin_init',  array( $this, 'miniorange_openid_save_settings' ) );
 		
 		add_action( 'plugins_loaded',  array( $this, 'mo_login_widget_text_domain' ) );
+        add_action( 'plugins_loaded',  array( $this, 'mo_openid_plugin_update' ),1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'mo_openid_plugin_settings_style' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'mo_openid_plugin_settings_script' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'mo_openid_plugin_settings_style' ) ,5);
 		add_action( 'wp_enqueue_scripts', array( $this, 'mo_openid_plugin_script' ) ,5);
-		
+
 		register_deactivation_hook(__FILE__, array( $this, 'mo_openid_deactivate'));
 		register_activation_hook( __FILE__, array( $this, 'mo_openid_activate' ) );
-		register_activation_hook( __FILE__, array( $this, 'mo_openid_modify_user_table' ) ); // add column provider and identifier
 		
 		// add social login icons to default login form
 		if(get_option('mo_openid_default_login_enable') == 1){
@@ -125,7 +124,8 @@ class Miniorange_OpenID_SSO {
 		if(get_option('moopenid_social_login_avatar')) {
 			add_filter( 'get_avatar', array( $this, 'mo_social_login_custom_avatar' ), 15, 5 );
 			add_filter( 'get_avatar_url', array( $this, 'mo_social_login_custom_avatar_url' ), 15, 3);
-			if(mo_openid_is_customer_valid()) add_filter( 'bp_core_fetch_avatar', array( $this, 'mo_social_login_buddypress_avatar' ), 10, 2);
+			if(mo_openid_is_customer_valid())  // and if existing customer
+				add_filter( 'bp_core_fetch_avatar', array( $this, 'mo_social_login_buddypress_avatar' ), 10, 2);
 		}
 		
 		remove_action( 'admin_notices', array( $this, 'mo_openid_success_message') );
@@ -134,6 +134,7 @@ class Miniorange_OpenID_SSO {
 		//set default values
 		add_option( 'mo_openid_login_redirect', 'same' );
 		add_option( 'mo_openid_login_theme', 'longbutton' );
+		add_option( 'mo_openid_oauth','0');
 		add_option( 'mo_openid_share_theme', 'oval' );
 		add_option( 'mo_share_options_enable_post_position', 'before');
 		add_option( 'mo_share_options_home_page_position', 'before');
@@ -163,7 +164,10 @@ class Miniorange_OpenID_SSO {
 		add_option( 'mo_openid_logout_redirection_enable', '0' );
 		add_option( 'mo_openid_logout_redirect', 'currentpage' );
 		add_option( 'mo_openid_auto_register_enable', '1');
+		add_option( 'mo_openid_account_linking_enable', '0');
+		add_option( 'mo_openid_email_enable', '1');
 		add_option( 'mo_openid_register_disabled_message', 'Registration is disabled for this website. Please contact the administrator for any queries.' );
+		add_option( 'mo_openid_register_email_message', 'Hello,<br><br>##User Name## has registered to your site  successfully.<br><br>Thanks,<br>miniOrange' );	
 		add_option( 'moopenid_social_login_avatar','1' );
 		add_option( 'moopenid_user_attributes','0' );
 		add_option( 'mo_share_vertical_hide_mobile', '1' );
@@ -173,13 +177,14 @@ class Miniorange_OpenID_SSO {
 		add_option( 'mo_openid_social_comment_google_label', 'Google+ Comments' );
 		add_option( 'mo_openid_social_comment_disqus_label', 'Disqus Comments' );
 		add_option( 'mo_openid_social_comment_heading_label', 'Leave a Reply' );
-		add_option( 'mo_openid_login_role_mapping','subscriber');
+		add_option('mo_openid_login_role_mapping','subscriber');
+		add_option( 'mo_openid_user_number',0);
 		add_option( 'mo_openid_login_widget_customize_logout_name_text', 'Howdy, ##username## |' );
 		add_option( 'mo_openid_login_widget_customize_logout_text', 'Logout?' );
 		add_option( 'mo_openid_share_email_subject','I wanted you to see this site' );
 		add_option( 'mo_openid_share_email_body','Check out this site ##url##' );
 		add_option( 'mo_openid_enable_profile_completion','1' );
-		add_option('mo_openid_user_count','1');
+        add_option( 'moopenid_logo_check','1' );
 	}
 		
 	function mo_openid_deactivate() {
@@ -197,33 +202,84 @@ class Miniorange_OpenID_SSO {
 		delete_option( 'mo_openid_admin_customer_valid');
 		delete_option( 'mo_openid_admin_customer_plan');
 	}
-	
+
+    //  create mo_openid_linked_user if it doesn't exist
+    // + add entries in wp_mo_openid_linked_user table
+    // + remove columns app name and identifier from wp_users table
+	function mo_openid_plugin_update(){
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'mo_openid_linked_user';
+        $charset_collate = $wpdb->get_charset_collate();
+
+        if($wpdb->get_var("show tables like '$table_name'") != $table_name) {
+            $sql = "CREATE TABLE $table_name (
+                    id mediumint(9) NOT NULL AUTO_INCREMENT,
+                    linked_social_app varchar(55) NOT NULL,
+                    linked_email varchar(55) NOT NULL,
+                    user_id mediumint(10) NOT NULL,
+                    identifier VARCHAR(100) NOT NULL,
+                    PRIMARY KEY  (id)
+                ) $charset_collate;";
+
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            dbDelta($sql);
+
+            $identifier = $wpdb->get_var("SELECT COLUMN_NAME 
+                                    FROM information_schema.COLUMNS 
+                                    WHERE 
+                                    TABLE_NAME = '$wpdb->users' 
+                                    AND COLUMN_NAME = 'identifier'");
+
+            if(strcasecmp( $identifier, "identifier") == 0 ){
+
+                $count= $wpdb->get_var("SELECT count(ID) FROM $wpdb->users WHERE identifier not LIKE ''");
+                $result= $wpdb->get_results("SELECT * FROM $wpdb->users WHERE identifier not LIKE ''");
+
+                for($icnt = 0; $icnt < $count; $icnt = $icnt + 1){
+
+                    $provider = $result[$icnt]->provider;
+                    $split_app_name = explode('_', $provider);
+                    $provider = strtolower($split_app_name[0]);
+                    $user_email = $result[$icnt]->user_email;
+                    $ID = $result[$icnt]->ID;
+                    $identifier = $result[$icnt]->identifier;
+
+                    $output = $wpdb->insert(
+                        $table_name,
+                        array(
+                            'linked_social_app' => $provider,
+                            'linked_email' => $user_email,
+                            'user_id' =>  $ID,
+                            'identifier' => $identifier
+                        ),
+                        array(
+                            '%s',
+                            '%s',
+                            '%d',
+                            '%s'
+                        )
+                    );
+                    if($output === false){
+                        /*$wpdb->show_errors();
+                        $wpdb->print_error();
+                        exit;*/
+                        wp_die('Error in insert Query');
+                    }
+
+                }
+                $wpdb->get_var("ALTER TABLE $wpdb->users DROP COLUMN provider");
+                $wpdb->get_var("ALTER TABLE $wpdb->users DROP COLUMN identifier");
+            }
+        }
+    }
+
 	function mo_openid_activate() {
-		add_option('Activated_Plugin','Plugin-Slug');	
-	}	
-		
-	// add columns provider and identifier to users table 	
-	function mo_openid_modify_user_table(){
-
-		global $wpdb;
-		$table_name = $wpdb->prefix . 'users';
-		$provider_column = 'provider';
-		$identifier_column = 'identifier';
-		
-		$row = $wpdb->get_results("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = ".$table_name." AND column_name = ".$provider_column);
-		if(empty($row)){
-		   $wpdb->query("ALTER TABLE ".$table_name." ADD ".$provider_column." VARCHAR(20) NOT NULL ");
-		}
-		
-		$row = $wpdb->get_results("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = ".$table_name." AND column_name = ".$identifier_column);
-		if(empty($row)){
-		   $wpdb->query("ALTER TABLE ".$table_name." ADD ".$identifier_column." VARCHAR(100) NOT NULL ");
-		}
-
+		add_option('Activated_Plugin','Plugin-Slug');
 	}
 	
 	function mo_openid_add_social_login(){
-		if(!is_user_logged_in() && mo_openid_is_customer_registered()){
+
+		if(!is_user_logged_in() && mo_openid_is_customer_registered() && strpos( $_SERVER['QUERY_STRING'], 'disable-social-login' ) == false){
 			$mo_login_widget = new mo_openid_login_wid();
 			$mo_login_widget->openidloginForm();
 		}
@@ -271,15 +327,12 @@ class Miniorange_OpenID_SSO {
 			return $post_content;
             				 
 	}
-	
-	
 
 	function mo_openid_social_share(){
 		global $post;
 		$title = str_replace('+', '%20', urlencode($post->post_title));
 		echo mo_openid_share_shortcode('', $title);	
 	}
-
 
 	function mo_openid_add_comment(){
 		global $post;
@@ -295,7 +348,6 @@ class Miniorange_OpenID_SSO {
 			mo_openid_social_comment($post, $url);
 		}
 	}
-
 		
 	function mo_custom_login_stylesheet()
 	{
@@ -329,8 +381,7 @@ class Miniorange_OpenID_SSO {
 	}
 	
 	function mo_openid_success_message() {
-		$message = get_option('mo_openid_message'); ?>
-		
+		$message = get_option('mo_openid_message'); ?>	
 		<script> 
 		
 		jQuery(document).ready(function() {	
@@ -383,6 +434,13 @@ class Miniorange_OpenID_SSO {
 		load_plugin_textdomain('flw', FALSE, basename( dirname( __FILE__ ) ) .'/languages');
 	}
 	
+	public function mo_oauth_check_empty_or_null( $value ) {
+		if( ! isset( $value ) || empty( $value ) ) {
+			return true;
+		}
+		return false;
+	}	
+	
 	function miniorange_openid_save_settings(){
 		if ( current_user_can( 'manage_options' )){ 
 		if(is_admin() && get_option('Activated_Plugin')=='Plugin-Slug') {
@@ -431,6 +489,7 @@ class Miniorange_OpenID_SSO {
 			update_option( 'mo_openid_admin_last_name', $last_name);
 			update_option( 'mo_openid_admin_email', $email );
 			update_option( 'mo_openid_admin_phone', $phone );
+		
 			if( strcmp( $password, $confirmPassword) == 0 ) {
 				update_option( 'mo_openid_admin_password', $password );
 
@@ -448,7 +507,7 @@ class Miniorange_OpenID_SSO {
 						}
 						update_option('mo_openid_transactionId',$content['txId']);
 						update_option('mo_openid_registration_status','MO_OTP_DELIVERED_SUCCESS');
-
+						
 						$this->mo_openid_show_success_message();
 					}else{
 						update_option('mo_openid_message','There was an error in sending email. Please click on Resend OTP to try again.');
@@ -465,7 +524,8 @@ class Miniorange_OpenID_SSO {
 				$this->mo_openid_show_error_message();
 			}
 
-		}else if(isset($_POST['option']) and $_POST['option'] == "mo_openid_validate_otp"){
+		}
+		else if(isset($_POST['option']) and $_POST['option'] == "mo_openid_validate_otp"){
 
 			//validation and sanitization
 			$otp_token = '';
@@ -487,6 +547,7 @@ class Miniorange_OpenID_SSO {
 			$content = json_decode($customer->validate_otp_token(get_option('mo_openid_transactionId'), $otp_token ),true);
 			if(strcasecmp($content['status'], 'SUCCESS') == 0) {
 				$this->create_customer();
+				update_option('mo_openid_oauth','1');
 			}else{
 				update_option( 'mo_openid_message','Invalid one time passcode. Please enter a valid passcode.');
 				update_option('mo_openid_registration_status','MO_OTP_VALIDATION_FAILURE');
@@ -596,9 +657,9 @@ class Miniorange_OpenID_SSO {
 						$license = array();
 						$license = explode(' -', $content['licensePlan']);
 						$lp = $license[0];
-						update_option( 'mo_openid_message','You are on ' . $lp . '.');
+						update_option( 'mo_openid_message','You are on the old ' . $lp . '.');
 					} else
-						update_option( 'mo_openid_message','You are on Free Plan.');
+						update_option( 'mo_openid_message','You are on the Free Plan.');
 					$this->mo_openid_show_success_message();
 				}else if(strcasecmp($content['status'], 'FAILED') == 0){
 					update_option('mo_openid_message', 'You are on Free Plan.');
@@ -642,15 +703,24 @@ class Miniorange_OpenID_SSO {
 				update_option( 'mo_openid_auto_register_enable', isset( $_POST['mo_openid_auto_register_enable']) ? $_POST['mo_openid_auto_register_enable'] : 0);
 				update_option( 'mo_openid_register_disabled_message', $_POST['mo_openid_register_disabled_message']);
 
+				//account-linking
+				update_option( 'mo_openid_account_linking_enable', isset( $_POST['mo_openid_account_linking_enable']) ? $_POST['mo_openid_account_linking_enable'] : 0);	
+
+				//email notification
+				update_option( 'mo_openid_email_enable', isset( $_POST['mo_openid_email_enable']) ? $_POST['mo_openid_email_enable'] : 0);
+				
 				//Customized text
 			    update_option('mo_openid_login_widget_customize_text',$_POST['mo_openid_login_widget_customize_text'] );
 			    update_option( 'mo_openid_login_button_customize_text',$_POST['mo_openid_login_button_customize_text'] );
 				
-				update_option('mo_openid_login_widget_customize_logout_name_text',sanitize_text_field($_POST['mo_openid_login_widget_customize_logout_name_text']));
-			    update_option( 'mo_openid_login_widget_customize_logout_text',sanitize_text_field($_POST['mo_openid_login_widget_customize_logout_text']));
-				
-				update_option('mo_login_openid_login_widget_customize_textcolor',$_POST['mo_login_openid_login_widget_customize_textcolor']);
+				if(!get_option('mo_openid_oauth')){
+                    update_option('mo_openid_login_widget_customize_logout_name_text',sanitize_text_field($_POST['mo_openid_login_widget_customize_logout_name_text']));
+                    update_option( 'mo_openid_login_widget_customize_logout_text',sanitize_text_field($_POST['mo_openid_login_widget_customize_logout_text']));
+				}else{
+                    update_option('moopenid_logo_check', isset( $_POST['moopenid_logo_check']) ? $_POST['moopenid_logo_check'] : 0);
+                }
 
+				update_option('mo_login_openid_login_widget_customize_textcolor',$_POST['mo_login_openid_login_widget_customize_textcolor']);
 			    update_option('mo_openid_login_theme',$_POST['mo_openid_login_theme'] );
 				update_option( 'mo_openid_message', 'Your settings are saved successfully.' );
 				
@@ -665,18 +735,17 @@ class Miniorange_OpenID_SSO {
 			
 				// avatar
 				update_option( 'moopenid_social_login_avatar', isset( $_POST['moopenid_social_login_avatar']) ? $_POST['moopenid_social_login_avatar'] : 0);
-				
+
 				//profile completion
 				update_option('mo_openid_enable_profile_completion', isset( $_POST['mo_openid_enable_profile_completion']) ? $_POST['mo_openid_enable_profile_completion'] : 0);
 				
-				if(isset($_POST['mapping_value_default']) && mo_openid_is_customer_valid())
+				if(isset($_POST['mapping_value_default']))
 					update_option('mo_openid_login_role_mapping', isset( $_POST['mapping_value_default']) ? $_POST['mapping_value_default'] : 'subscriber');
 
 				if(mo_openid_is_customer_valid() && !mo_openid_get_customer_plan('Do It Yourself')){
 					//Attribute collection
 					update_option( 'moopenid_user_attributes', isset( $_POST['moopenid_user_attributes']) ? $_POST['moopenid_user_attributes'] : 0);
 				}
-				
 				
 				$this->mo_openid_show_success_message();
 						
@@ -824,7 +893,85 @@ class Miniorange_OpenID_SSO {
 				$this->mo_openid_show_error_message();
 			}
 		}
+		else if( isset( $_POST['option'] ) and $_POST['option'] == "mo_openid_add_custom_app" ) {
+			if($this->mo_oauth_check_empty_or_null($_POST['mo_oauth_client_id']) || $this->mo_oauth_check_empty_or_null($_POST['mo_oauth_client_secret'])) {
+				update_option( 'message', 'Please enter valid Client ID and Client Secret.');
+				$this->mo_openid_show_error_message();
+				return;
+			} else{
+				$scope = stripslashes(sanitize_text_field( $_POST['mo_oauth_scope'] ));
+				$clientid = stripslashes(sanitize_text_field( $_POST['mo_oauth_client_id'] ));
+				$clientsecret = stripslashes(sanitize_text_field( $_POST['mo_oauth_client_secret'] ));
+				$appname = stripslashes(sanitize_text_field( $_POST['mo_oauth_app_name'] ));
+				
+				if(get_option('mo_openid_apps_list'))
+					$appslist = get_option('mo_openid_apps_list');
+				else
+					$appslist = array();
+
+				$newapp = array();
+				
+				foreach($appslist as $key => $currentapp){
+					if($appname == $key){
+						$newapp = $currentapp;
+						break;
+					}
+				}
+				
+				$newapp['clientid'] = $clientid;
+				$newapp['clientsecret'] = $clientsecret;
+				$newapp['scope'] = $scope;
+				$newapp['redirecturi'] = site_url().'/openidcallback';
+				if($appname=="facebook"){
+					$authorizeurl = 'https://www.facebook.com/dialog/oauth';
+					$accesstokenurl = 'https://graph.facebook.com/v2.8/oauth/access_token';
+					$resourceownerdetailsurl = 'https://graph.facebook.com/me/?fields=id,name,email,age_range,first_name,gender,last_name,link&access_token=';
+				} else if($appname=="google"){
+					$authorizeurl = "https://accounts.google.com/o/oauth2/auth";
+					$accesstokenurl = "https://www.googleapis.com/oauth2/v3/token";
+					//private static final String VERIFY_TOKEN_ENDPOINT = "https://www.googleapis.com/oauth2/v1/tokeninfo?id_token=";
+					//private static final String GET_USER_INFO_ENDPOINT = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=";
+					$resourceownerdetailsurl = "https://www.googleapis.com/plus/v1/people/me";
+				} else if($appname=="twitter"){
+					$authorizeurl = "https://api.twitter.com/oauth/authorize";
+					$accesstokenurl = "https://api.twitter.com/oauth/access_token";
+					$resourceownerdetailsurl = "https://dev.twitter.com/docs/api/1.1/get/account/verify_credentials?include_email=true";
+				}else {
+					$authorizeurl = stripslashes(sanitize_text_field($_POST['mo_oauth_authorizeurl']));
+					$accesstokenurl = stripslashes(sanitize_text_field($_POST['mo_oauth_accesstokenurl']));
+					$resourceownerdetailsurl = stripslashes(sanitize_text_field($_POST['mo_oauth_resourceownerdetailsurl']));
+					$appname = stripslashes(sanitize_text_field( $_POST['mo_oauth_custom_app_name'] ));
+				}
+				
+				$newapp['authorizeurl'] = $authorizeurl;
+				$newapp['accesstokenurl'] = $accesstokenurl;
+				$newapp['resourceownerdetailsurl'] = $resourceownerdetailsurl;
+				$appslist[$appname] = $newapp;
+				update_option('mo_openid_apps_list', $appslist);
+				wp_redirect('admin.php?page=mo_openid_settings&tab=custom_app');
+			}
 		}
+		else if( isset( $_POST['option'] ) and $_POST['option'] == "mo_openid_custom_app_attribute_mapping" ) {
+			$appname = stripslashes(sanitize_text_field( $_POST['mo_oauth_app_name'] ));
+			$email_attr = stripslashes(sanitize_text_field( $_POST['mo_oauth_email_attr'] ));
+			$name_attr = stripslashes(sanitize_text_field( $_POST['mo_oauth_name_attr'] ));
+					
+			$appslist = get_option('mo_openid_apps_list');
+			foreach($appslist as $key => $currentapp){
+				if($appname == $key){
+					$currentapp['email_attr'] = $email_attr;
+					$currentapp['name_attr'] = $name_attr;
+					$appslist[$key] = $currentapp;
+					break;
+				}
+			}
+			update_option('mo_openid_apps_list', $appslist);
+			update_option( 'message', 'Your settings are saved successfully.' );
+			$this->mo_openid_show_success_message();
+			wp_redirect('admin.php?page=mo_openid_settings&tab=custom_app&action=update&app='.urlencode($appname));
+		}		
+		}
+		
 	}
 
 	function create_customer(){
@@ -931,16 +1078,14 @@ class Miniorange_OpenID_SSO {
 		}
 	}
 	
-
-	
 	function mo_social_login_custom_avatar( $avatar, $mixed, $size, $default, $alt = '' ) {
         $user = false;
 		
-        if ( is_numeric( $mixed ) AND $mixed > 0 ) {	//Check if we have an user identifier
+        if ( is_numeric( $mixed ) AND $mixed > 0 ) {	//Check if we have a user identifier
             $user_id = $mixed;
-        } elseif ( is_string( $mixed ) AND ( $user = get_user_by( 'email', $mixed )) ) {	//Check if we have an user email
+        } elseif ( is_string( $mixed ) AND ( $user = get_user_by( 'email', $mixed )) ) {	//Check if we have a user email
         	$user_id = $user->ID;
-        } elseif ( is_object( $mixed ) AND property_exists( $mixed, 'user_id' ) AND is_numeric( $mixed->user_id ) ) {		//Check if we have an user object
+        } elseif ( is_object( $mixed ) AND property_exists( $mixed, 'user_id' ) AND is_numeric( $mixed->user_id ) ) {		//Check if we have a user object
             $user_id = $mixed->user_id;
         } else {		//None found
             $user_id = null;

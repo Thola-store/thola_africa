@@ -25,7 +25,10 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 			$lite_active    = is_plugin_active( $lite_dirname . '/fl-builder.php' );
 			$plugin_dirname = basename( dirname( dirname( __FILE__ ) ) );
 
-			if ( class_exists( 'FLBuilder' ) || ( $plugin_dirname != $lite_dirname && $lite_active ) ) {
+			if ( $lite_active && $plugin_dirname != $lite_dirname ) {
+				deactivate_plugins( array( $lite_dirname . '/fl-builder.php' ), false, is_network_admin() );
+				return;
+			} elseif ( class_exists( 'FLBuilder' ) ) {
 				add_action( 'admin_notices',           __CLASS__ . '::double_install_admin_notice' );
 				add_action( 'network_admin_notices',   __CLASS__ . '::double_install_admin_notice' );
 				return;
@@ -43,7 +46,7 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 		 * @return void
 		 */
 		static private function define_constants() {
-			define( 'FL_BUILDER_VERSION', '2.0.4.4' );
+			define( 'FL_BUILDER_VERSION', '2.0.5' );
 			define( 'FL_BUILDER_FILE', trailingslashit( dirname( dirname( __FILE__ ) ) ) . 'fl-builder.php' );
 			define( 'FL_BUILDER_DIR', plugin_dir_path( FL_BUILDER_FILE ) );
 			define( 'FL_BUILDER_URL', plugins_url( '/', FL_BUILDER_FILE ) );

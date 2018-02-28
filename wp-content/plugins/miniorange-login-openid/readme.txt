@@ -1,28 +1,28 @@
 ﻿=== Social Login ===
 Contributors: miniOrange
-Donate link: http://miniorange.com
+Donate link: https://www.miniorange.com
 Tags: social login, social, facebook, twitter, login
 Requires at least: 2.0.2
-Tested up to: 4.9
-Stable tag: 5.5.2
+Tested up to: 4.9.4
+Stable tag: 6.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Social Login implements social login, sharing, comment using any social media like Twitter, Google, Facebook. EASIEST to configure.
+Social Login implements social login, sharing, comment using social media like Google, Facebook, Twitter. EASIEST to configure.
 
 == Description ==
-Social Login is the easiest to configure and conviniently allows you to setup and start using the plugin very quickly.
+Social Login is the easiest to configure and conveniently allows you to setup and start using the plugin very quickly.
 
-Social Login includes Facebook, Twitter, Vkontakte, Google, LinkedIn, WindowsLive, Instagram, Salesforce and Amazon.
+Social Login includes Facebook, Twitter, Google.
 
 Social Login allows your visitors to comment, share, login and register with many Social Media applications.
 
 Social Login provides different display options with beautiful customizations (CSS knowledge not needed!).
 
-= Social Login (30 days Free Trial) =
+= Social Login =
 Social Login allows your visitors to choose from their favourite social login apps to login, comment, share and optionally auto-register with your website or blog.
 
-One-click login to your WordPress site using social login applications like Google, Twitter, Facebook, Vkontakte, LinkedIn, Instagram, Amazon, Salesforce, Windows Live. This means, if your user is logged in to Google, user can comment on any blog or site by simply clicking the `google icon` - no username or password is explicitly required! Simply enable Social Login, **no setup of social media application** is required and you are done. Since the setup is managed by us, Social Login is a premium feature with 30 days free trial.
+One-click login to your WordPress site using social login applications like Google, Twitter, Facebook. Paid plans support Vkontakte, LinkedIn, Instagram, Amazon, Windows Live. This means, if your user is logged in to Google, user can comment on any blog or site by simply clicking the `google icon` - no username or password is explicitly required! Simply enable Social Login, **no setup of social media application** is required and you are done.
 
 = Social Sharing =
 Allow anyone to easily share your website content using their favorite social sharing applications. Social Sharing applications include Facebook, Twitter, Google+, Pinterest, Reddit, Vkontakte, Tumblr, StumbleUpon, LinkedIn, Pocket, Digg, Delicious, Odnoklassniki, Email, Print, Whatsapp. Customize your social sharing buttons to suit to your website's theme. Social sharing on homepage includes sharing with content or excerpt.
@@ -32,11 +32,17 @@ See the <a href="https://wordpress.org/plugins/miniorange-login-openid/screensho
 = Social Comments =
 Allow users to comment on your website using supported social media commenting apps such as Facebook and Google. Social Comments does not require the users to be registered or logged in on your site for adding comments.
 
-= Features - =
+= Free Version Features =
 
-*	<b>Profile Completion</b> - If username or email is not returned from a social app, user is prompted to input the same. 
-*	Clean and easy to use WordPress admin UI
-*	**NO SETUP required for any social login or social sharing application**
+*	**NO SETUP required for Facebook, Google, Twitter or social sharing application**
+*	Option to Setup your own application with APP ID and APP Secret for Facebook, Google, Twitter.
+*	Option to enable/disable user registration.
+*   Account Linking
+*   Profile completion (username, email)
+*   Profile Picture
+*	Login Redirect URL
+*	Logout Redirect URL
+*   Customizable Text For Login Icons
 *	Support for SHORTCODE for both social login and social sharing(horizontal & vertical)
 *   Choose where to add the Social Login Icons: login page, registration page, comment form or anywhere on your site using our Social Login widget/ shortcode.
 *	Option to add Social Comment using Facebook and Google.
@@ -47,16 +53,26 @@ Allow users to comment on your website using supported social media commenting a
 *	Preview customization of selected social login and social sharing applications in WordPress admin panel.
 *	Horizontal Social Sharing widget for share icons
 *	Floating Vertical Social Sharing widget for share icons
-*	Customize social login and social sharing buttons to match your website's theme.
-*	Select your favourite theme for social sharing and social login icons.
-*	One-click login to your website using any social login app. [Premium with 30 days Free trial]
-*	Login to social media applications - Facebook, Google, Vkontakte, Twitter, LinkedIn, Instagram, Amazon, Salesforce, Windows Live. [Premium with 30 days Free trial]
-*	Set custom redirect option for social login to point your users to your desired page [Premium with 30 days Free trial]
-*	Optionally select from a range of logout URL options for social login [Premium with 30 days Free trial]
-*	Optional automatic user registration after social login if the user is not already registered with your site. [Premium with 30 days Free trial]
-*	Assign universal role to users registering through Social Login [Premium]
-*	Variety of troubleshooting topics in plugin.
 *	**Support** using email and in-plugin support form
+
+= Premium Version Features =
+
+*   All free version features
+*   **Login with all apps [Premium]** - Facebook, Google, Twitter, Vkontakte, LinkedIn, Instagram, Amazon, Windows Live
+*	**NO SETUP** required for all apps **[Premium]**
+*	**Setup your own application with APP ID and APP Secret for all apps **[Premium]**
+*	**Email Notification to multiple admins [Premium]** - Option to send email notification to admin when user registers.
+*	**Welcome email to end users [Premium]** - Option to send email notification to user when he registers.
+*	**Customizable Email Notification template [Premium]** - Customize content of email sent to admin when user registers.
+*	**Customizable welcome email template [Premium]** - Customize content of welcome email sent to registering users.
+*	**Social Login Opens in a New Window [Premium]** - Social Login opens in a new window instead of the same window.
+*	**Domain restriction [Premium]** - Option to restrict login/registration for users with a domain specified in the admin dashboard.
+*	**BuddyPress Integration [Premium]** - Extended attributes returned from social app are mapped to Custom BuddyPress fields. Profile picture from social media is mapped to Buddypress avatar.
+*	**Woocommerce Integration [Premium]** - First name, last name and email are pre-filled in billing details of a user and on the Woocommerce checkout page. Social Login icons are displayed on the Woocommerce checkout page.
+*	**MailChimp Integration [Premium]** - A user is added as a subscriber to a mailing list in MailChimp when that user registers using Social Login. First name, last name and email are also captured for that user in the Mailing List. Option is available to download csv file that has list of emails of all users in WordPress.
+*	**Extended Profile Data [Premium]** - Extended profile data feature requires additional configuration. You need to have your own social media app and permissions from social media providers to collect extended user data.
+*	**Social Analytics Dashboard Access [Premium]** -
+*	**Custom Integration [Premium]** - If you have a specific custom requirement in the Social Login Plugin, we can implement and integrate it in the Plugin fo you. This includes all those custom features that come under the scope of Social Login/ Sharing/ Comments. These features are chargeable. Please send us a query through the support forum to get in touch with us about your custom requirements.
 
 = Easy Integration =
 Easy integration with your website with options to add Social login on login page, registration page and comments section. Add `miniOrange - Social Login` widget to add social login in widget area. Add shortcode [miniorange_social_login] to add social login in other places. Add social sharing applications to home page, posts, content pages, WooCommerce product page, bbPress forums, bbPress topics, bbPress replies and anywhere on your site using widgets. For Social Sharing, use `miniOrange Sharing - Vertical` for floating vertical widget and `miniOrange Sharing - Horizontal` for horizontal widget to add social sharing in widget area. Add shortcode [miniorange_social_sharing] for horizontal sharing icons and [miniorange_social_sharing_vertical] for vertical sharing icons.
@@ -77,11 +93,11 @@ Our very simple and easy registration lets you register with miniOrange. miniOra
 = Website - =
 These additional features are available upon request. Send an email to info@miniorange.com if you need any of these features. 
 
-User Profile Data, integration with external softwares like salesforce, box, office 365, mailchimp etc, and Social Analytics.
+User Profile Data, integration with external softwares like salesforce, box, office 365 etc, and Social Analytics.
 This can also captures users’ profile data, with their permission, and automatically creates a profile in miniOrange database and you can download it using a CSV file or a PDF file.
 
-Check out our website for other plugins <a href="http://miniorange.com/plugins" >http://miniorange.com/plugins</a> or <a href="https://wordpress.org/plugins/search.php?q=miniorange" >click here</a> to see all our listed WordPress plugins.
-For more support or info email us at info@miniorange.com or <a href="http://miniorange.com/contact" >Contact us</a>. You can also submit your query from the plugin's configuration page.
+Check out our website for other plugins <a href="https://www.miniorange.com/plugins" >https://www.miniorange.com/plugins</a> or <a href="https://wordpress.org/plugins/search.php?q=miniorange" >click here</a> to see all our listed WordPress plugins.
+For more support or info email us at info@miniorange.com or <a href="https://www.miniorange.com/contact" >Contact us</a>. You can also submit your query from the plugin's configuration page.
 
 
 == Installation ==
@@ -123,8 +139,8 @@ To add Social Login or Social Sharing icons to a custom location, use a Shortcod
 = I have added miniOrange Sharing - Vertical widget to my page. How can I change its position in the page?  =
 The vertical sharing widget for Social Sharing gives a couple of options to change its position in the page and also the space between icons. You can align the social sharing widget on the left or right side of the page. You can view these options from Appearance->Widgets or editing the widget options in Customizer.
 
-= I want to upgrade to the premium plan but I don't find the option. How can I upgrade?  =
-Premium version of the plugin can be activated from the plugin itself. To activate the premium version, go to Licensing Plans tab and click on Upgrade Now to upgrade to the premium plan of your choice.
+= I want to upgrade to the standard/premium plan. How can I upgrade?  =
+Please contact us through the support form for the standard and premium plugin.
 
 = For any other query/problem/request =
 Please email us at info@miniorange.com. You can also submit your query from the Social plugin's configuration page.
@@ -144,6 +160,26 @@ Please email us at info@miniorange.com. You can also submit your query from the 
 
 
 == Changelog ==
+= 6.2.1 =
+*   Bug fix
+
+= 6.2.0 =
+*   Fix for Unresolved Error in Insert Query
+
+= 6.1.0 =
+*   Fix for Error in Insert Query
+
+= 6.0.2 =
+*   Minor Changes in Readme & Licensing Plans tab
+
+= 6.0.1 =
+*   Minor Changes in Readme
+
+= 6.0.0 =
+*	Added Account Linking feature (Links social account to existing WordPress account)
+*	Revised Payment Plans
+*	Compatibility with PHP 7.2.1
+
 = 5.5.2 =
 *	Compatibility with International characters. 
 
@@ -413,6 +449,26 @@ Please email us at info@miniorange.com. You can also submit your query from the 
 * First version of Social Login, Social Sharing plugin.
 
 == Upgrade Notice ==
+= 6.2.1 =
+*   Bug fix
+
+= 6.2.0 =
+*   Fix for Unresolved Error in Insert Query
+
+= 6.1.0 =
+*   Fix for Error in Insert Query
+
+= 6.0.2 =
+*   Minor Changes in Readme & Licensing Plans tab
+
+= 6.0.1 =
+*   Minor Changes in Readme
+
+= 6.0.0 =
+*	Added Account Linking feature (Links social account to existing WordPress account)
+*	Revised Payment Plans
+*	Compatibility with PHP 7.2.1
+
 = 5.5.2 =
 *	Compatibility with International characters.
 

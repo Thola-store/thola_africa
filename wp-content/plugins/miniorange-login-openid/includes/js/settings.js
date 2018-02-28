@@ -10,6 +10,9 @@ jQuery(document).ready(function () {
 	jQuery("#openid_sharing_shortcode_title").click(function () {
     	jQuery("#openid_sharing_shortcode").slideToggle(400);
     });
+	jQuery("#openid_comments_shortcode_title").click(function () {
+    	jQuery("#openid_comments_shortcode").slideToggle(400);
+    });	
 	jQuery("#openid_shortcode_inphp_title").click(function () {
     	jQuery("#openid_shortcode_inphp").slideToggle(400);
     });
@@ -73,6 +76,9 @@ jQuery(document).ready(function () {
 	jQuery("#openid_question_curl").click(function () {
     	jQuery("#openid_question_curl_desc").slideToggle(400);
     });
+	jQuery("#openid_question_email").click(function () {
+    	jQuery("#openid_question_email_desc").slideToggle(400);
+    });	
 	jQuery("#openid_question_otp").click(function () {
     	jQuery("#openid_question_otp_desc").slideToggle(400);
     });
